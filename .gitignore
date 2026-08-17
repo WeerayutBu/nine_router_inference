@@ -149,6 +149,7 @@ activemq-data/
 
 # Environments
 .env
+.public-api.env
 .envrc
 .venv
 env/

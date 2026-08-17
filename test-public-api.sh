@@ -13,3 +13,4 @@ jq -n --arg model "${PUBLIC_API_MODEL}" --arg prompt "${prompt}" \
     -H "CF-Access-Client-Id: ${CF_ACCESS_CLIENT_ID}" \
     -H "CF-Access-Client-Secret: ${CF_ACCESS_CLIENT_SECRET}" \
     --data-binary @- | jq .
+  

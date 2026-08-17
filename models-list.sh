@@ -9,3 +9,4 @@ curl -fsS "${PUBLIC_API_BASE_URL%/}/models" \
   -H "CF-Access-Client-Secret: ${CF_ACCESS_CLIENT_SECRET}" |
   jq -r '.data[]?.id // empty' |
   sort
+

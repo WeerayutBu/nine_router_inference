@@ -1,0 +1,11 @@
+[project]
+name = "nine-router-inference"
+version = "0.1.0"
+description = "Smoke tests for the 9Router public API"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "langchain-openai",
+    "python-dotenv",
+]
+

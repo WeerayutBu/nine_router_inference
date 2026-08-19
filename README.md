@@ -37,3 +37,13 @@ uv run test-public-api.py gpt-5.6-sol
 ```
 
 The real `.public-api.env` is ignored by Git and should never be committed.
+
+Start an interactive OpenAI Codex CLI session:
+
+```bash
+./test-openai-cli.sh
+```
+
+The script loads `.public-api.env`, uses `PUBLIC_API_MODEL`, and stays open for
+continued conversation. Pass another model ID as the first argument to override
+it. The `codex` CLI must already be installed.

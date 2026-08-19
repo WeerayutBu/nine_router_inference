@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-. "${PUBLIC_API_ENV_FILE:-.public-api.env}"
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+repo_root="$(cd -- "$script_dir/.." && pwd)"
+. "${PUBLIC_API_ENV_FILE:-$repo_root/.public-api.env}"
 
 : "${PUBLIC_API_BASE_URL:?Set PUBLIC_API_BASE_URL in .public-api.env}"
 : "${PUBLIC_API_MODEL:?Set PUBLIC_API_MODEL in .public-api.env}"

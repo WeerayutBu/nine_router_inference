@@ -26,7 +26,8 @@ def main() -> None:
     parser.add_argument("model", nargs="?", help="Override PUBLIC_API_MODEL")
     args = parser.parse_args()
 
-    env_file = Path(os.getenv("PUBLIC_API_ENV_FILE", ".public-api.env"))
+    repo_root = Path(__file__).resolve().parent.parent
+    env_file = Path(os.getenv("PUBLIC_API_ENV_FILE", repo_root / ".public-api.env"))
     load_dotenv(env_file)
 
     model = args.model or required_env("PUBLIC_API_MODEL")

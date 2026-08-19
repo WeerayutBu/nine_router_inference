@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "${PUBLIC_API_ENV_FILE:-.public-api.env}"
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+repo_root="$(cd -- "$script_dir/.." && pwd)"
+source "${PUBLIC_API_ENV_FILE:-$repo_root/.public-api.env}"
 
 model="${1:-${PUBLIC_API_MODEL}}"
 prompt="This is an API smoke test. Reply with exactly: 9ROUTER_SMOKE_TEST_OK"
@@ -14,4 +16,3 @@ jq -n --arg model "${model}" --arg prompt "${prompt}" \
     -H "CF-Access-Client-Id: ${CF_ACCESS_CLIENT_ID}" \
     -H "CF-Access-Client-Secret: ${CF_ACCESS_CLIENT_SECRET}" \
     --data-binary @- | jq .
-  
